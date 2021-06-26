@@ -1,0 +1,100 @@
+#result {
+	z-index: 1;
+	letter-spacing: 2px;
+	text-shadow: 1.2px 0 0 #F2A104;
+	color: #0F9D58;
+	position: relative;
+}
+
+#answer {
+	text-align: left;
+	white-space: pre-wrap;
+	box-sizing: border-box;
+	overflow: scroll;
+	width: 550px;
+  height: 250px;
+	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: white;
+	border: 1px solid LightGray;
+}
+
+#error {
+	color: red;
+}
+
+#heading {
+	padding: 25px;
+}
+
+#dbutton, #cbutton {
+	color: #622569;
+	font-size: 1.2em;
+	font-weight: bold;
+	width: 20%;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 171px;
+	margin-right: 171px;
+	font-family: Georgia, serif;
+}
+
+#rbutton {
+	font-family: Georgia, serif;
+	font-size: 1em;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+h1 {
+	font-family: Georgia, serif;
+	color: #622569;
+}
+
+h4 {
+	font-family: Georgia, serif;
+	font-style: oblique;
+	color: #583E2E;
+}
+
+body {
+	background-image: url("bg.jpg") ;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	padding-top: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+table, th, td {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid black;
+	background-color: white;
+}
+
+th {
+	padding: 5px;
+}
+
+a {
+	font-family: system-ui;
+	color: #0444BF;
+	font-size: 1.1em;
+	text-decoration: none;
+}
+
+p {
+	font-family: Times, serif;
+	font-size: 18px;
+	color: #282726;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+	<head>
+		<link rel="icon" href="{% static "autodetect/favicon.png" %}">
+		<script src="{% static "autodetect/jquery-3.3.1.min.js" %}"
+			type="text/javascript" ></script>
+		<script type="text/javascript"
+			src="{% static "autodetect/Convert.js" %}"></script>
+    <script src="{% static "autodetect/DropDown.js" %}"
+  		type="text/javascript" ></script>
+    <link rel="stylesheet" href="{% static "autodetect/Styling.css" %}" >
+		<title>Codevert</title>
+	</head>
+
+	  <div id="heading">
+      <h1 align="center">CODEVERT</h1>
+	  </div>
+
+	  <body>
+			<p>This tool is built to auto-detect the Data Serialization Language entered
+				and provide compatible conversions. <br> Enter your data below and Press
+				the Detect button. On detection of data, select the required language
+				format from the dropdown and Press the Convert button. <br/></p><br><br/>
+
+			<form action="{% url 'predict' %}" method="POST">{% csrf_token %}
+			<table border="1">
+				<tr>
+					<th><div align="center">
+						    <h4 style="display:inline;"> Detected </h4>
+								{% if dflag == 1 %}
+								  <h4 style="display:inline;"> - </h4>
+				          <h2 id="result" style="display:inline;">{{ result_format }}</h2>
+								{% endif %}
+						  </div>
+					</th>
+					<th><h4>Select Conversion Format: &nbsp;
+	 				      <select id="sel_choice" name="selected">
+									{% for key, format in drop_down %}
+									  <option value="{{ key }}">{{ format.upper }}</option>
+									{% endfor %}
+	 				      </select>
+	 			      </h4>
+					</th>
+				</tr>
+				<tr>
+					<td>{{ text_form.input_text }}</td>
+					<td><div id="answer"></div></td>
+				</tr>
+			</table><br/>
+		  <div>
+        <input id="dbutton" type="submit" value="Detect" name="detect"/>
+        <button id="cbutton" onclick="convertFunction(sel_choice.value)">
+				  Convert
+				</button>
+			</div><br><br/>
+
+			<div align="center"><input id="rbutton" type="submit" value="Reset" /></div>
+
+			<h4 id="error">
+				{{ text_form.input_text.errors | striptags }}
+			</h4>
+			{% if dflag == 0 %}
+				<h4 id="error"> {{ result_format }} </h4>
+			{% endif %}<br/>
+
+			<div align="center">
+        <a id="change_convert" href="#" data-format="{{ result_format }}" style="display:none;">
+					Do you want to convert to another format?
+			  </a>
+			</div>
+		</form><br/>
+	<br/><br/><br/>
+		</body>
+ </html>
